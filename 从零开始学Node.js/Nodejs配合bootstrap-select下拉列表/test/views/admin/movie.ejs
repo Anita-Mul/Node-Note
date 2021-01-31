@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="/css/bootstrap-select.min.css" rel="stylesheet" media="screen" />
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- 代码片断 -->
+    <form class="form-horizontal well" method="GET">
+        <!-- 多选下拉列表，增加multiple属性
+             show-tick，下拉后选中的行，结尾以'√'标识（增加css显示类型）
+             data-size="5"，下拉列表长度为5行，多于5行的用滚动条显示
+             增加value属性，获得nodejs的传参
+             value="<%=search.type||''%>"
+         -->
+        <select name="type" class="selectpicker show-tick" data-size="5" value="<%=search.type||''%>" multiple>
+            <!-- 默认值是空 -->
+            <option></option>
+            <option>科幻</option>
+            <option>剧情</option>
+            <option>犯罪</option>
+            <option>西部</option>
+            <option>爱情</option>
+        </select>
+    </form>
+
+    <!-- 代码片段 -->
+    <script type="text/javascript">
+        $(function () {
+
+            //下拉菜单
+            //默认显示请选择
+            $('.selectpicker').selectpicker({ noneSelectedText: '请选择' });
+            $('.selectpicker').selectpicker('val', $('.selectpicker').attr('value'));
+
+        })
+    </script>
+
+</body>
+
+</html>

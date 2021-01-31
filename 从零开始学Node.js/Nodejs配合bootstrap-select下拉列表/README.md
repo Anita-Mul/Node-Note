@@ -1,0 +1,33 @@
+我没太搞明白这篇文章是想干啥，就用bootstrap写了一个下拉列表
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select class="selectpicker">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Barbecue</option>
+    </select>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+</body>
+
+</html>
+```
