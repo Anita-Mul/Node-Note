@@ -1,0 +1,10 @@
+<% head.ejs %>
+<ul>
+    <% articles.forEach((article) => {%>
+        <li>
+            <a href="/articles/<%= article.id %>"></a>
+            <%= article.title %>
+        </li>
+    <% }) %>
+</ul>
+<% foot.ejs %>
