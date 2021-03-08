@@ -20,7 +20,7 @@ const { dirname, resolve } = require("path");
     secureConnection: true, // 使用了 SSL 
     auth: {
       user: '2659580957@qq.com', 
-      pass: 'fnseppmezgnvdjai', // 这里的密码是smtp授权码 
+      pass: '', // 这里的密码是smtp授权码 
     },
   });
 
