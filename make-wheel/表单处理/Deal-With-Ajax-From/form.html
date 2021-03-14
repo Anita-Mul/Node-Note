@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="formContainer">
+    <form class="newsletterForm" action="/process" method="POST">
+        <input type="hidden" name="_csrf" value="这里可以填写要隐藏的数据">
+          Name: <input type="text" class="form-control" id="fieldName" name="name"></br>      
+          Email: <input type="email" class="form-control" required id="fieldEmail" name="email"></br>
+          <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      // .newsletterFrom是表单的名字
+      $('.newsletterForm').on('submit', function(evt){
+          // 
+          evt.preventDefault();
+          var action = $(this).attr('action');
+          var $container = $(this).closest('.formContainer');
+          $.ajax({
+              // url: 'https://www.baidu.com/', 如果想要访问外链，得这样写
+              // url: action,
+              url: 'http://localhost:3000/process',
+              type: 'POST',
+              data: $(this).serialize(),
+              success: function(data){
+                  if(data.success){
+                      $container.html('<h2>Thank you!</h2>');
+                  } else {
+                      console.log('hha');
+                      $container.html('There was a problem.');
+                  }
+              },
+              error: function(){
+                  $container.html('There was a problem.');
+              }
+          });
+      });
+  });
+</script>
+</html>
