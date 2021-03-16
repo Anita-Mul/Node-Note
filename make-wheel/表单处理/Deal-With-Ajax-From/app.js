@@ -13,6 +13,10 @@ app.use(express.static(__dirname + '/node_modules'));
 // req.accepts(['json', 'html'] 这个方法会返回这两个其中之一json/html
 app.post('/process', function(req, res){
     if(req.xhr || req.accepts(['json', 'html']) === 'json'){
+        // 下面这三句话用来解决跨域问题
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Header", "*");
+        res.setHeader("Access-Control-Allow-Method", "*");
         res.send({ success: true });  // 屏幕上会输出 {"success":true}
     } else {
         res.redirect(303, '/thank-you');

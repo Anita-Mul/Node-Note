@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 必须指定multipartform-data -->
+  <form enctype="multipart/form-data" method="POST" action="/contest/vacation-photo/{{ year }}/{{ month }}">
+    Name: <input type="text" class="form-control" id="fieldName" name="name">
+    Email: <input type="email" class="form-control" required id="fieldEmail" name="email">
+    Vacation photo: <input type="file" class="form-control" required accept="image/*" id="fieldPhoto" data-url="/upload"
+      name="photo">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+
+</html>

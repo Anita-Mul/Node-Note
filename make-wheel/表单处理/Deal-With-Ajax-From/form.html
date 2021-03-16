@@ -20,8 +20,9 @@
 <script>
   $(document).ready(function(){
       // .newsletterFrom是表单的名字
+      // jQuery通常假定所有的数据都是jSon格式的
       $('.newsletterForm').on('submit', function(evt){
-          // 
+          // 阻止提交的默认事件
           evt.preventDefault();
           var action = $(this).attr('action');
           var $container = $(this).closest('.formContainer');
