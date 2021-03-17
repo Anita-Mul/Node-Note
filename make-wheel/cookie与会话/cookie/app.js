@@ -64,6 +64,10 @@ app.use(require('cookie-parser')(credentials.cookieSecret));
  * 8. 签名cookie
  *    签名cookie更适合做敏感数据，因为用它可以验证cookie数据的完整性，有助于放置中间人攻击
  *    有效的签名放在req.signedCookies对象中
+ *    签名cookie的获取
+ *      // Cookie: user=tobi.CP7AWaXDfAKIRfH49dQzKJx7sKzzSoPq7/AcBBRVwlI3
+ *      console.dir(req.signedCookies.user)
+ *      // => 'tobi'
  */
 
 // 获取cookie
