@@ -109,3 +109,25 @@ const dbStream = {
 }
 app.use('short', {stream: dbStream});
 ```
+
+## 在生产环境和开发环境分别使用不同的API
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "pro": "set NODE_ENV=production&& node app.js",
+  "dev": "set NODE_ENV=development&& node app.js"
+},
+```
+```javascript
+// 在生产环境中，使用express-logger; 在开发环境中使用Morgan
+switch(app.get('env')){
+  case 'development':
+    app.use(require('morgan')('dev'));
+    break;
+  case 'production':
+    app.use(require('express-logger')({
+      path: __dirname + '/log/expressLogger.log'
+    }));
+    break;
+}
+```

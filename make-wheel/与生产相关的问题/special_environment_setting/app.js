@@ -58,11 +58,29 @@ const path = require('path');
 // }
 // app.use('short', {stream: dbStream});
 
+// 在生产环境中，使用express-logger; 在开发环境中使用Morgan
+switch(app.get('env')){
+  case 'development':
+    app.use(require('morgan')('dev'));
+    break;
+  case 'production':
+    app.use(require('express-logger')({
+      path: __dirname + '/log/expressLogger.log'
+    }));
+    break;
+}
+
 app.get('/', function(req, res){
   res.send({ success: true});
 });
 
+if(process.env.NODE_ENV === "production") {
+  console.log('线上环境');
+} else {
+  console.log('开发环境');
+}
+
 app.listen(app.get('port'), function(){
-  console.log( 'Express started on http://localhost:' + 
+  console.log( 'Express started in ' + app.get('env') + ' mode on http://localhost:' + 
     app.get('port') + '; press Ctrl-C to terminate.' );
 });

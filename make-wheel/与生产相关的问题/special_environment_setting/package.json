@@ -4,13 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pro": "set NODE_ENV=production&& node app.js",
+    "dev": "set NODE_ENV=development&& node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-logger": "0.0.3",
     "file-stream-rotator": "^0.5.7",
     "mongoose": "^5.12.2",
     "morgan": "^1.10.0"
